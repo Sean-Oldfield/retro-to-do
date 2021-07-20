@@ -1,0 +1,26 @@
+[v-cloak] {
+    display: none
+}
+
+body {
+    background-color: #7b82d6;
+    background-image: url("../images/white-cloud.png");
+    background-repeat: repeat-x;
+    background-position-y: -45%;
+}
+
+#app {
+    max-width: 800px;
+}
+
+#start-screen {
+    padding: 50px;
+    max-width: 400px;
+    background-color: white;
+}
+
+#to-do-app {
+    padding: 50px;
+    max-width: 600px;
+    background-color: white;
+}
