@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Retro To-Do</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>        
+        <div id="app">
+            <h1>Retro To-Do App</h1>
+            
+            <h2>What do you need to do today?</h2>
+            <input v-model="newTask" type="text" placeholder="New task">
+            <button @click="createNewTask">Add</button>
+
+            <h2>To Do:</h2>
+            <ul>
+                <span v-for="task in tasks">
+                    <input type="checkbox" v-model="task.completed">
+                    <li >{{ task.desc }}</li>
+                    <button @click="deleteTask(task)">Delete</button>
+                </span>
+            </ul>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    newTask: '',
+                    tasks: []
+                },
+                methods: {
+                    createNewTask() {
+                        this.tasks.push({
+                            desc: this.newTask,
+                            completed: false
+                        });
+                        this.newTask = '';
+                    },
+                    deleteTask(task) {
+                        var index = this.tasks.indexOf(task);
+                        if (index !== -1) {
+                        this.tasks.splice(index, 1);
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
