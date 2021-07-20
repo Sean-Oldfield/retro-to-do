@@ -2,25 +2,75 @@
     display: none
 }
 
+/* GENERAL STYLING */
+
 body {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
     background-color: #7b82d6;
     background-image: url("../images/white-cloud.png");
     background-repeat: repeat-x;
-    background-position-y: -45%;
+    background-position-y: -10%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    color: #7b82d6;
+}
+
+button {
+    background: none;
+    border: 2px dashed #7b82d6;
+    color: black;
+    padding: 1rem;
+    border-radius: 15px;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+}
+
+input {
+    background: none;
+    border: 2px dashed #7b82d6;
+    color: black;
+    padding: 1rem;
+    border-radius: 15px;
 }
 
 #app {
     max-width: 800px;
 }
 
+/* START SCREEN STYLING */
+
 #start-screen {
     padding: 50px;
     max-width: 400px;
     background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 12px 12px 0 0 #3a3a3a;
+    text-align: center;
 }
+
+#start-screen-star {
+    height: 40px;
+}
+
+/* MAIN APP STYLING */
 
 #to-do-app {
     padding: 50px;
-    max-width: 600px;
+    max-width: 500px;
     background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 12px 12px 0 0 #3a3a3a;
 }

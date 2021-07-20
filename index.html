@@ -4,20 +4,23 @@
         <title>Retro To-Do</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/style.css">
-
     </head>
     <body>        
         <div id="app" class="container" v-cloak>
 
             <div id="start-screen" v-if="!appStarted">
-                <h1>Retro To Do</h1>
-                <h2>Complete tasks to earn points and stars. You got this!</h2>
+                <img id="start-screen-star" class="mb-4" src="assets/images/star.png" alt="retro star icon">
+                <h1 class="mb-4">Retro To Do</h1>
+                <p class="mb-4">Complete tasks to earn points and stars. You got this!</p>
                 <button @click="startApp">Start</button>
             </div>
 
             <div id="to-do-app" v-if="appStarted">
-                <h1>Retro To-Do App</h1>
+                <h1>RETRO TO DO</h1>
                 <button @click="endApp">End</button>
 
                 <h2>What do you need to do today?</h2>
