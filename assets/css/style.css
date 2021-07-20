@@ -40,6 +40,10 @@ input {
     border-radius: 15px;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 #app {
     max-width: 800px;
 }
@@ -66,11 +70,86 @@ input {
 
 #to-do-app {
     padding: 50px;
-    max-width: 500px;
+    max-width: 600px;
     background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 12px 12px 0 0 #3a3a3a;
+}
+
+#app-title {
+    margin: 0;
+}
+
+#end-button {
+    background-color: #d11a2a;
+    color: white;
+    border: none;
+    font-size: 0.6rem;
+    padding: 0.6rem;
+}
+
+#app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.level-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.level-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.level-icon {
+    margin-left: 12px;
+    height: 24px;
+}
+
+.new-task-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-task-input {
+    margin-right: 40px;
+}
+
+#tasks-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 30%;
+    overflow-y: scroll;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #7b82d6;
+    opacity: 0.7;
+}
+
+.completed-icon {
+    color: #32A956;
+    font-size: 1.2rem;
+}
+
+.delete-icon {
+    color: #d11a2a;
+    font-size: 1.2rem;
 }

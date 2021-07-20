@@ -8,32 +8,51 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/style.css">
+        <script src="https://kit.fontawesome.com/0c6e5c5cde.js" crossorigin="anonymous"></script>
     </head>
     <body>        
         <div id="app" class="container" v-cloak>
 
             <div id="start-screen" v-if="!appStarted">
                 <img id="start-screen-star" class="mb-4" src="assets/images/star.png" alt="retro star icon">
-                <h1 class="mb-4">Retro To Do</h1>
-                <p class="mb-4">Complete tasks to earn points and stars. You got this!</p>
+                <h1 class="mb-4">Retro Tasks</h1>
+                <p class="mb-4">Complete tasks to earn stars and level up. You got this!</p>
                 <button @click="startApp">Start</button>
             </div>
 
             <div id="to-do-app" v-if="appStarted">
-                <h1>RETRO TO DO</h1>
-                <button @click="endApp">End</button>
+                <div id="app-header" class="mb-4">
+                    <h1 id="app-title">Retro Tasks</h1>
+                    <button @click="endApp" id="end-button">Exit</button>
+                </div>
 
-                <h2>What do you need to do today?</h2>
-                <input v-model="newTask" type="text" placeholder="New task">
-                <button @click="createNewTask">Add</button>
+                <div class="level-row mb-4">
+                    <div class="level-section">
+                        <p class="m-0">Score: 0</p>
+                        <img class="level-icon" src="assets/images/star.png" alt="star icon">
+                    </div>
+                    <div class="level-section">
+                        <p class="m-0">Level: 0</p>
+                        <img class="level-icon" src="assets/images/heart.png" alt="star icon">
+                    </div>
+                </div>
+
+                <div class="new-task-row mb-5">
+                    <input v-model="newTask" class="new-task-input" type="text" placeholder="Add a new task">
+                    <button @click="createNewTask">Add</button>
+                </div>
 
                 <h2>To Do:</h2>
-                <ul>
-                    <span v-for="task in tasks">
-                        <input type="checkbox" v-model="task.completed">
-                        <li >{{ task.desc }}</li>
-                        <button @click="deleteTask(task)">Delete</button>
-                    </span>
+                <ul id="tasks-list">
+                    <li class="task-item mb-3" v-for="task in tasks">
+                        <span v-bind:class="{ completed: task.completed }">
+                            {{ task.desc }}
+                        </span>
+                        <span>
+                            <span class="cursor-pointer completed-icon" @click="toggleCompleted(task)"><i class="fas fa-check"></i></span>
+                            <span class="cursor-pointer delete-icon" @click="deleteTask(task)"><i class="fas fa-trash-alt"></i></span>
+                        </span>
+                    </li>   
                 </ul>
             </div>
         </div>
@@ -56,19 +75,26 @@
                         this.appStarted = false;
                     },
                     createNewTask() {
+                        if (this.newTask.length > 0) {
                         this.tasks.push({
                             desc: this.newTask,
                             completed: false
                         });
                         this.newTask = '';
+                        } else {
+                            alert('Please enter a task first!');
+                        }
                     },
                     deleteTask(task) {
-                        var index = this.tasks.indexOf(task);
+                        let index = this.tasks.indexOf(task);
                         if (index !== -1) {
-                        this.tasks.splice(index, 1);
+                            this.tasks.splice(index, 1);
                         }
-                    }
-                }
+                    },
+                    toggleCompleted(task) {
+                        task.completed = !task.completed;
+                    },
+                 }
             });
         </script>
     </body>
