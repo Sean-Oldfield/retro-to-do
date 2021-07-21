@@ -239,3 +239,9 @@ body.dark-theme input {
 body.dark-theme .completed {
     color: #06e514;
 }
+
+body.dark-theme .to-do-container::-webkit-scrollbar-thumb {
+    background-color: #06e514;
+    border-radius: 20px;
+    height: 5px;
+}
