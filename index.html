@@ -15,7 +15,7 @@
         <div id="app" class="container" v-cloak>
 
             <div id="start-screen" v-if="!appStarted">
-                <img id="start-screen-star" class="mb-4" src="assets/images/star.png" alt="retro star icon">
+                <img @click="toggleTheme" id="start-screen-star" class="mb-4 cursor-pointer" src="assets/images/star.png" alt="retro star icon">
                 <h1 class="mb-4">RetroTasks</h1>
                 <p class="mb-4">Complete tasks to earn stars and level up. You got this!</p>
                 <button @click="startApp">Start</button>
@@ -75,7 +75,7 @@
                     levelUps: [3, 6, 9, 12, 15, 20] 
                 },
                 mounted () {
-                    this.restoreLocalStorage();
+                    this.restoreLocalStorage(), this.setStartingTheme();
                 },
                 computed: {
                     score() {
@@ -161,6 +161,19 @@
                         let snd = document.getElementById(id);
                         snd.play();
                         snd.currentTime=0;
+                    },
+                    toggleTheme() {
+                        document.body.classList.toggle('dark-theme');
+                        if (document.body.classList.contains('dark-theme')) {
+                            localStorage.theme = 'dark-theme';
+                        } else {
+                            localStorage.theme = null;
+                        }
+                    },
+                    setStartingTheme() {
+                        if (localStorage.theme === 'dark-theme') {
+                            this.toggleTheme();
+                        }
                     },
                     restoreLocalStorage() {
                         if (localStorage.tasks) {
