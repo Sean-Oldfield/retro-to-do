@@ -215,6 +215,7 @@ body.dark-theme {
     background-position: right top, top;
     background-size: 180px, auto;
     color: white;
+    background-color: black;
 }
 
 body.dark-theme h1, body.dark-theme h2 {
